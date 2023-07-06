@@ -16,14 +16,17 @@ public class ReqresAPI {
     public static String POST_CREATE_USER = Constants.BASE_URL + "/api/users";
     public static String GET_SINGLE_USER = Constants.BASE_URL + "/api/users/{id}";
     public static String POST_LOGIN_USER = Constants.BASE_URL + "/api/login";
+    public static String PUT_UPDATE_USER = Constants.BASE_URL + "/api/users/{id}";
+    public static String DELETE_USER = Constants.BASE_URL + "/api/users/{id}";
+    public static String REGISTER_USER = Constants.BASE_URL + "/api/register";
 
-    @Step("Get list users")
+    @Step("GET list users")
     public void getListUsers(int numPage){
         SerenityRest.given()
                 .pathParam("numPage", numPage);
     }
 
-    @Step("Get Single User")
+    @Step("GET Single User")
     public void getSingleUser(int id){
         SerenityRest.given()
                 .pathParam("id", id);
@@ -36,18 +39,28 @@ public class ReqresAPI {
     }
 
     @Step("POST Login Successfully")
-    public void postLoginValidUser(File json){
+    public void postLoginUser(File json){
         SerenityRest.given()
                 .contentType(ContentType.JSON).body(json);
     }
 
-    @Step("POST Login Unsuccessfully")
-    public void postLoginInvalidUser(String email, String password){
-        Map<String, Object> user = new HashMap<>();
-        user.put("email", email);
-        user.put("password", password);
-
+    @Step("PUT Update User")
+    public void putUpdateUser(int id, File json){
         SerenityRest.given()
-                .contentType(ContentType.JSON).body(user);
+                .pathParam("id", id)
+                .contentType(ContentType.JSON)
+                .body(json);
+    }
+
+    @Step("DELETE User")
+    public void deleteUser(int id){
+        SerenityRest.given()
+                .pathParam("id", id);
+    }
+
+    @Step("POST Register Valid User")
+    public void postRegisterUser(File json){
+        SerenityRest.given()
+                .contentType(ContentType.JSON).body(json);
     }
 }
