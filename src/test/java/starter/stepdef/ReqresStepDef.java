@@ -47,7 +47,7 @@ public class ReqresStepDef {
     /**
      * GET Single User with valid user id
      */
-    @Given("GET Single user with valid user id {int}")
+    @Given("GET Single user with user id {int}")
     public void getSingleUserWithValidUserId(int id) {
         reqresAPI.getSingleUser(id);
     }
@@ -56,7 +56,6 @@ public class ReqresStepDef {
     public void sendRequestGETSingleUser() {
         SerenityRest.when().get(ReqresAPI.GET_SINGLE_USER);
     }
-
 
     @And("Response body user id should be {int}")
     public void responseBodyUserIdShouldBe(int id) {
@@ -103,9 +102,9 @@ public class ReqresStepDef {
      * POST LOGIN USER
      */
 
-    @Given("POST Login with valid JSON")
-    public void postLoginWithValidJSON() {
-        File json = new File(Constants.REQ_BODY+"/ValidLogin.json");
+    @Given("POST Login with valid JSON {string}")
+    public void postLoginWithValidJSON(String jsonName) {
+        File json = new File(Constants.REQ_BODY+"/"+jsonName+"");
         reqresAPI.postLoginValidUser(json);
     }
 
@@ -124,6 +123,13 @@ public class ReqresStepDef {
     @Given("POST Login with invalid email {string} and password {string}")
     public void postLoginWithInvalidEmailAndPassword(String email, String password) {
         reqresAPI.postLoginInvalidUser(email, password);
+    }
+
+
+    @Given("POST Login with invalid JSON {string}")
+    public void postLoginInWithValidJSON(String jsonName) {
+        File json = new File(Constants.REQ_BODY+"/"+jsonName+"");
+        reqresAPI.postLoginValidUser(json);
     }
 
     @Then("Status code should be {int} Bad Request")
