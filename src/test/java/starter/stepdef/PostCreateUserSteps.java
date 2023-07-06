@@ -35,8 +35,8 @@ public class PostCreateUserSteps {
                 .post(ReqresAPI.POST_CREATE_USER);
     }
 
-    @Then("Response status code should be {int} Created")
-    public void responseStatusCodeShouldBeCreated(int statusCode) {
+    @Then("Status code should be {int} Created")
+    public void statusCodeShouldBeCreated(int statusCode) {
         SerenityRest.then()
                 .statusCode(statusCode);
     }

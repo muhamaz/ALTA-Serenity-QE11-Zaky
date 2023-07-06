@@ -34,7 +34,7 @@ public class GetSingleUserSteps {
     @And("Response body user id should be {int}")
     public void responseBodyUserIdShouldBe(int id) {
         SerenityRest.and()
-                .body(ReqresResponses.USER_ID, equalTo(id));
+                .body(ReqresResponses.DATA_ID, equalTo(id));
     }
 
     /**
