@@ -23,9 +23,9 @@ public class PostCreateUserSteps {
     /**
      * POST Create New User
      */
-    @Given("POST Create user with valid JSON")
-    public void postCreateUserWithValidJSON() {
-        File json = new File(Constants.REQ_BODY + "/User.json");
+    @Given("POST Create user with JSON {string}")
+    public void postCreateUserWithJSON(String jsonName) {
+        File json = new File(Constants.REQ_BODY + "/"+jsonName+"");
         reqresAPI.postCreateNewUser(json);
     }
 
