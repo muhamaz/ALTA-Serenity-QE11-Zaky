@@ -14,9 +14,9 @@ public class PutUpdateUserSteps {
     @Steps
     ReqresAPI reqresAPI;
 
-    @Given("PUT Update User with valid id {int} and json")
-    public void putUpdateUserWithValidIdAndJson(int id) {
-        File json = new File(Constants.REQ_BODY + "/Updateuser.json");
+    @Given("PUT Update User with id {int} and json {string}")
+    public void putUpdateUserWithIdAndJson(int id, String jsonName) {
+        File json = new File(Constants.REQ_BODY + "/"+jsonName+"");
         reqresAPI.putUpdateUser(id, json);
     }
 
