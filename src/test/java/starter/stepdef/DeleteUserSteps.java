@@ -12,8 +12,8 @@ public class DeleteUserSteps {
     @Steps
     ReqresAPI reqresAPI;
 
-    @Given("DELETE User with valid id {int}")
-    public void deleteUserWithValidId(int id) {
+    @Given("DELETE User with id {int}")
+    public void deleteUserWithId(int id) {
         reqresAPI.deleteUser(id);
     }
 
