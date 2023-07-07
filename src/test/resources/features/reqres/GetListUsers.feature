@@ -6,3 +6,4 @@ Feature: Get List All Users
     When Send request GET list users
     Then Status code should be 200 OK
     And Response body page value should be 2
+    And Validate with JSON schema "ListUserSchema.json"

@@ -18,6 +18,11 @@ public class PostRegisterSuccessfullySteps {
     @Steps
     ReqresAPI reqresAPI;
 
+    /**
+     *
+     * REGISTER VALID USER
+     */
+
     @Given("POST Register user with valid JSON {string}")
     public void postRegisterUserWithValidJSON(String jsonName) {
         File json = new File(Constants.REQ_BODY + "/"+jsonName+"");
@@ -35,5 +40,16 @@ public class PostRegisterSuccessfullySteps {
         SerenityRest.and()
                 .body(ReqresResponses.ID, equalTo(id))
                 .body(ReqresResponses.TOKEN, equalTo(token));
+    }
+
+    /**
+     *
+     * REGISTER INVALID USER
+     */
+
+    @Given("POST Register user with invalid JSON {string}")
+    public void postRegisterUserWithInvalidJSON(String jsonName) {
+        File json = new File(Constants.REQ_BODY + "/"+jsonName+"");
+        reqresAPI.postRegisterUser(json);
     }
 }

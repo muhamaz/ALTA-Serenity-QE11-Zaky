@@ -6,6 +6,7 @@ Feature: Get Single User
     When Send request GET Single user
     Then Status code should be 200 OK
     And Response body user id should be 2
+    And Validate with JSON schema "SingleUserSchema.json"
 
   @Tugas
   Scenario: GET Single user with invalid id

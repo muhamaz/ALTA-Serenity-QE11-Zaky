@@ -6,6 +6,7 @@ Feature: Update User
     When Send request PUT Update User
     Then Status code should be 200 OK
     And Response body name was "humam zaky" and job was "apaja yang penting halal"
+    And Validate with JSON schema "UpdateUserSchema.json"
 
   @Tugas
   Scenario Outline: PUT update user with invalid JSON

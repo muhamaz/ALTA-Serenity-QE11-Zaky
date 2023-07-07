@@ -5,6 +5,8 @@ Feature: Create new user
     When Send request POST create user
     Then Status code should be 201 Created
     And Response body name was "humam" and job was "zaky"
+    And Validate with JSON schema "CreateNewUserSchema.json"
+
 
   @Tugas
   Scenario Outline: POST Create new user with invalid JSON
