@@ -13,7 +13,7 @@ import java.io.File;
 
 import static org.hamcrest.Matchers.equalTo;
 
-public class PostRegisterSuccessfullySteps {
+public class PostRegisterUserSteps {
 
     @Steps
     ReqresAPI reqresAPI;
