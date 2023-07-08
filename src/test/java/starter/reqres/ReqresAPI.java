@@ -13,6 +13,7 @@ import java.util.Map;
 
 public class ReqresAPI {
     public static String GET_LIST_USERS = Constants.BASE_URL + "/api/users?page={numPage}";
+    public static String GET_LIST_RESOURCE = Constants.BASE_URL + "/api/unknown?page={numPage}";
     public static String POST_CREATE_USER = Constants.BASE_URL + "/api/users";
     public static String GET_SINGLE_USER = Constants.BASE_URL + "/api/users/{id}";
     public static String POST_LOGIN_USER = Constants.BASE_URL + "/api/login";
@@ -24,6 +25,12 @@ public class ReqresAPI {
     public void getListUsers(int numPage){
         SerenityRest.given()
                 .pathParam("numPage", numPage);
+    }
+
+    @Step("")
+    public void getListResource(int numpage){
+        SerenityRest.given()
+                .pathParam("numPage", numpage);
     }
 
     @Step("GET Single User")
@@ -38,7 +45,13 @@ public class ReqresAPI {
                 .contentType(ContentType.JSON).body(json);
     }
 
-    @Step("POST Login Successfully")
+    @Step("POST Register User")
+    public void postRegisterUser(File json){
+        SerenityRest.given()
+                .contentType(ContentType.JSON).body(json);
+    }
+
+    @Step("POST Login User")
     public void postLoginUser(File json){
         SerenityRest.given()
                 .contentType(ContentType.JSON).body(json);
@@ -58,9 +71,5 @@ public class ReqresAPI {
                 .pathParam("id", id);
     }
 
-    @Step("POST Register Valid User")
-    public void postRegisterUser(File json){
-        SerenityRest.given()
-                .contentType(ContentType.JSON).body(json);
-    }
+
 }
