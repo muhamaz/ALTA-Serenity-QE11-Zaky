@@ -8,7 +8,7 @@ Feature: Create new user
     And Validate with JSON schema "CreateNewUserSchema.json"
 
 
-  @Tugas
+  @Tugas @Bug
   Scenario Outline: POST Create new user with invalid JSON
     Given POST Create user with JSON <jsonName>
     When Send request POST create user

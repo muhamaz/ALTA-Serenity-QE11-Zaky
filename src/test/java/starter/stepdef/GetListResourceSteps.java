@@ -20,4 +20,14 @@ public class GetListResourceSteps {
         SerenityRest.when()
                 .get(ReqresAPI.GET_LIST_RESOURCE);
     }
+
+
+    /**
+     *
+     * GET LIST RESOURCE INVALID PARAM
+     */
+    @Given("GET list Resource with invalid parameter page {string}")
+    public void getListResourceWithinvalidParameterPage(String page) {
+        reqresAPI.getListUsersInvalidParam(page);
+    }
 }

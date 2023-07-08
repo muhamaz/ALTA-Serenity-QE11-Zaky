@@ -8,7 +8,7 @@ Feature: Update User
     And Response body name was "humam zaky" and job was "apaja yang penting halal"
     And Validate with JSON schema "UpdateUserSchema.json"
 
-  @Tugas
+  @Tugas @Bug
   Scenario Outline: PUT update user with invalid JSON
     Given PUT Update User with id <id> and json <jsonName>
     When Send request PUT Update User
@@ -20,7 +20,7 @@ Feature: Update User
       | 2  | "UpdateEmptyJob.json"       | 400        |
       | 2  | "UpdateEmptyName.json"      | 400        |
 
-  @Tugas
+  @Tugas @Bug
   Scenario: PUT update user with invalid id
     Given PUT Update User with id 99 and json "UpdateUser.json"
     When Send request PUT Update User

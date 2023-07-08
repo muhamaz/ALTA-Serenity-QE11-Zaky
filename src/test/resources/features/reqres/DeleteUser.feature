@@ -6,7 +6,7 @@ Feature: Delete user
     When Send request DELETE User
     Then Status code should be 204 No Content
 
-  @Tugas
+  @Tugas @Bug
   Scenario Outline: DELETE user with invalid parameter id
     Given DELETE User with id <id>
     When Send request DELETE User

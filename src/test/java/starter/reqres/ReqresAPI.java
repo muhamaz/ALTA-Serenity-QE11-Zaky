@@ -29,8 +29,20 @@ public class ReqresAPI {
                 .pathParam("numPage", numPage);
     }
 
-    @Step("")
+    @Step("GET list users invalid param")
+    public void getListUsersInvalidParam(String numPage){
+        SerenityRest.given()
+                .pathParam("numPage", numPage);
+    }
+
+    @Step("Get list Resource")
     public void getListResource(int numpage){
+        SerenityRest.given()
+                .pathParam("numPage", numpage);
+    }
+
+    @Step("Get list Resource Invalid Param")
+    public void getListResourceInvalidParam(String numpage){
         SerenityRest.given()
                 .pathParam("numPage", numpage);
     }

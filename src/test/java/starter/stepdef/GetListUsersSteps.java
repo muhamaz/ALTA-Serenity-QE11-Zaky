@@ -53,4 +53,13 @@ public class GetListUsersSteps {
                 .assertThat()
                 .body(JsonSchemaValidator.matchesJsonSchema(jsonSch));
     }
+
+    /**
+     *
+     * GET LIST USER INVALID PARAM
+     */
+    @Given("GET list users with invalid parameter page {string}")
+    public void getListUsersWithInvalidParameterPage(String page) {
+        reqresAPI.getListUsersInvalidParam(page);
+    }
 }
