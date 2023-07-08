@@ -14,6 +14,7 @@ import java.util.Map;
 public class ReqresAPI {
     public static String GET_LIST_USERS = Constants.BASE_URL + "/api/users?page={numPage}";
     public static String GET_LIST_RESOURCE = Constants.BASE_URL + "/api/unknown?page={numPage}";
+    public static String GET_DELAYED_RESPONSE = Constants.BASE_URL + "/api/users?delay={time}";
     public static String POST_CREATE_USER = Constants.BASE_URL + "/api/users";
     public static String GET_SINGLE_USER = Constants.BASE_URL + "/api/users/{id}";
     public static String POST_LOGIN_USER = Constants.BASE_URL + "/api/login";
@@ -37,6 +38,12 @@ public class ReqresAPI {
     public void getSingleUser(int id){
         SerenityRest.given()
                 .pathParam("id", id);
+    }
+
+    @Step
+    public void getDelayedResponse(int delay){
+        SerenityRest.given()
+                .pathParam("time", delay);
     }
 
     @Step("POST Create new user")
