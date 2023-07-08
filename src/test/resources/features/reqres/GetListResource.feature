@@ -1,6 +1,6 @@
 Feature: Get List All Resources
 
-  @Latihan
+  @Tugas
   Scenario: GET List Resource with valid parameter page
     Given GET list Resource with valid parameter page 2
     When Send request GET list Resource
